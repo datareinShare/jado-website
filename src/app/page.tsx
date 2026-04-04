@@ -18,7 +18,7 @@ const services = [
     icon: "🌱",
   },
   {
-    title: "子ども向けAIスクール mirAI",
+    title: "子ども向けAIスクール",
     description:
       "小中高生を対象としたオンラインAI・IT教育スクール。1対1の個別指導で未来を生き抜く力を。",
     href: "/services/mirai",

@@ -12,7 +12,7 @@ const navItems = [
     label: "事業紹介",
     children: [
       { href: "/services/altif", label: "放課後等デイ ALTIF" },
-      { href: "/services/mirai", label: "AIスクール mirAI" },
+      { href: "/services/mirai", label: "子ども向けAIスクール" },
       { href: "/services/training", label: "企業向けAI研修" },
       { href: "/services/seminar", label: "セミナー・講演" },
     ],

@@ -171,9 +171,17 @@ export default function Contact() {
           <FadeIn delay={0.3}>
             <div className="mt-8 text-center text-brown-500 text-sm">
               <p>メールでのお問い合わせ</p>
-              <a href="mailto:Kento0124ss@gmail.com" className="text-accent hover:underline">
-                Kento0124ss@gmail.com
-              </a>
+              <button
+                type="button"
+                className="text-accent hover:underline"
+                onClick={() => {
+                  const u = "Kento0124ss";
+                  const d = "gmail.com";
+                  window.location.href = `mailto:${u}@${d}`;
+                }}
+              >
+                メールを送る
+              </button>
             </div>
           </FadeIn>
         </div>
