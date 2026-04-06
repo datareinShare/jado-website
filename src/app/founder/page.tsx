@@ -44,17 +44,6 @@ export default function Founder() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <FadeIn direction="left">
-              <div className="flex-shrink-0">
-                <Image
-                  src="/images/seminar-3.jpg"
-                  alt="鈴木 健斗"
-                  width={900}
-                  height={600}
-                  className="w-full md:w-[42rem] h-auto rounded-2xl object-contain shadow-lg"
-                />
-              </div>
-            </FadeIn>
-            <FadeIn direction="right" delay={0.2}>
               <div>
                 <h2 className="text-3xl font-bold text-brown-800">鈴木 健斗</h2>
                 <p className="text-brown-500 mt-1">すずき けんと</p>
@@ -67,33 +56,70 @@ export default function Founder() {
                 </p>
               </div>
             </FadeIn>
+            <FadeIn direction="right" delay={0.2}>
+              <div className="flex-shrink-0">
+                <Image
+                  src="/images/founder.png"
+                  alt="JADO代表理事 鈴木 健斗 — プロフィール写真"
+                  width={600}
+                  height={900}
+                  className="w-full md:w-[28rem] h-auto rounded-2xl object-contain shadow-lg"
+                />
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
       {/* Bio */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 md:py-32 bg-white overflow-hidden">
+        {/* Background image - large, semi-transparent */}
+        <div className="absolute inset-0 flex items-center justify-start pointer-events-none">
+          <div className="relative w-[40rem] h-[40rem] -ml-20 lg:ml-0">
+            <Image
+              src="/images/seminar-3.jpg"
+              alt=""
+              fill
+              className="object-cover object-top rounded-full opacity-10"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <SectionHeading title="プロフィール" />
           </FadeIn>
-          <FadeIn delay={0.15}>
-            <div className="space-y-6 text-brown-600 leading-relaxed">
-              <p>
-                愛知県豊橋市出身。豊橋の高校を卒業後、名古屋市立大学データサイエンス学部に同学部1期生として入学。大学1年の冬から生成AIを軸に活動を開始し、19歳で起業。
-              </p>
-              <p>
-                富士通・ビックカメラ・東進ゼミナール・キンブルをはじめとした大手から中小まで幅広い企業へのAI活用研修を実施し、業務への具体的な落とし込みまで一貫して支援。東進ゼミナールにおける新規事業立ち上げにも携わるなど、民間企業での実績を積み重ねてきた。
-              </p>
-              <p>
-                ZIP FMへのラジオ出演などメディア活動も行いながら、直近では愛知県議会議員・市議会議員を対象とした約150名規模のセミナーに登壇するなど、行政・民間を問わず幅広い分野で講義・講演を行っている。
-              </p>
-              <p>
-                現在は大学3年生（21歳）として在学しながら、一般社団法人
-                日本AI人材育成機構（JADO）を設立し代表理事を務める。AI活用の普及と事業開発の両軸で精力的に活動中。
-              </p>
-            </div>
-          </FadeIn>
+          <div className="flex flex-col lg:flex-row items-center gap-12 max-w-5xl mx-auto">
+            <FadeIn direction="left" delay={0.15}>
+              <div className="relative flex-shrink-0 w-full lg:w-auto">
+                <div className="relative w-72 h-72 md:w-96 md:h-96 mx-auto">
+                  <Image
+                    src="/images/seminar-3.jpg"
+                    alt="鈴木 健斗 — 登壇の様子"
+                    fill
+                    className="object-cover object-top rounded-full shadow-2xl ring-4 ring-brown-100"
+                  />
+                </div>
+              </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={0.3}>
+              <div className="space-y-6 text-brown-600 leading-relaxed">
+                <p>
+                  愛知県豊橋市出身。豊橋の高校を卒業後、名古屋市立大学データサイエンス学部に同学部1期生として入学。大学1年の冬から生成AIを軸に活動を開始し、19歳で起業。
+                </p>
+                <p>
+                  富士通・ビックカメラ・東進ゼミナール・キンブルをはじめとした大手から中小まで幅広い企業へのAI活用研修を実施し、業務への具体的な落とし込みまで一貫して支援。東進ゼミナールにおける新規事業立ち上げにも携わるなど、民間企業での実績を積み重ねてきた。
+                </p>
+                <p>
+                  ZIP FMへのラジオ出演などメディア活動も行いながら、直近では愛知県議会議員・市議会議員を対象とした約150名規模のセミナーに登壇するなど、行政・民間を問わず幅広い分野で講義・講演を行っている。
+                </p>
+                <p>
+                  現在は大学3年生（21歳）として在学しながら、一般社団法人
+                  日本AI人材育成機構（JADO）を設立し代表理事を務める。AI活用の普及と事業開発の両軸で精力的に活動中。
+                </p>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 

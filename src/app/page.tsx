@@ -219,7 +219,7 @@ export default function Home() {
               <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0 shadow-lg">
                 <Image
                   src="/images/seminar-3.jpg"
-                  alt="鈴木 健斗"
+                  alt="JADO代表理事 鈴木 健斗 — セミナー登壇の様子"
                   width={192}
                   height={192}
                   className="w-full h-full object-cover"

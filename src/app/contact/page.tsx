@@ -88,8 +88,10 @@ export default function Contact() {
                         id="name"
                         name="name"
                         required
-                        className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
+                        aria-required="true"
+                        className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent invalid:border-red-300 invalid:focus:border-red-400 invalid:focus:ring-red-200 outline-none transition-all duration-200 peer"
                       />
+                      <p className="hidden peer-invalid:peer-not-placeholder-shown:block text-sm text-red-500 mt-1">お名前を入力してください</p>
                     </div>
                     <div>
                       <label htmlFor="kana" className="block text-sm font-medium text-brown-700 mb-2">
@@ -113,8 +115,10 @@ export default function Contact() {
                       id="email"
                       name="email"
                       required
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
+                      aria-required="true"
+                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent invalid:border-red-300 invalid:focus:border-red-400 invalid:focus:ring-red-200 outline-none transition-all duration-200 peer"
                     />
+                    <p className="hidden peer-invalid:peer-not-placeholder-shown:block text-sm text-red-500 mt-1">有効なメールアドレスを入力してください</p>
                   </div>
 
                   <div>
@@ -150,17 +154,25 @@ export default function Contact() {
                       name="message"
                       rows={6}
                       required
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200 resize-y"
+                      aria-required="true"
+                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent invalid:border-red-300 invalid:focus:border-red-400 invalid:focus:ring-red-200 outline-none transition-all duration-200 resize-y peer"
                     />
+                    <p className="hidden peer-invalid:peer-not-placeholder-shown:block text-sm text-red-500 mt-1">お問い合わせ内容を入力してください</p>
                   </div>
 
                   <motion.button
                     type="submit"
                     disabled={isPending}
-                    className="w-full bg-brown-700 text-white py-4 rounded-full font-medium hover:bg-brown-800 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-brown-700 text-white py-4 rounded-full font-medium hover:bg-brown-800 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     whileHover={isPending ? {} : { scale: 1.02 }}
                     whileTap={isPending ? {} : { scale: 0.98 }}
                   >
+                    {isPending && (
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                    )}
                     {isPending ? "送信中..." : "送信する"}
                   </motion.button>
                 </form>

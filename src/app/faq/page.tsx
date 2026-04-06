@@ -45,6 +45,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <button
         className="w-full flex items-start justify-between gap-4 py-5 text-left group"
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
       >
         <span className="text-brown-800 font-medium group-hover:text-accent transition-colors">
           Q. {q}

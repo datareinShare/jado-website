@@ -53,7 +53,7 @@ export default function Altif() {
           >
             <Image
               src="/images/altif-logo.png"
-              alt="ALTIF"
+              alt="ALTIF — AIを活用した未来探索型 放課後等デイサービス"
               width={200}
               height={200}
               className="h-32 w-auto object-contain mx-auto"

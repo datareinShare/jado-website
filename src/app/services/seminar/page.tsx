@@ -20,11 +20,19 @@ const examples = [
 export default function Seminar() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-brown-100 to-background py-24 md:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero — seminar-1 を背景に大きく */}
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
+        <Image
+          src="/images/seminar-1.jpg"
+          alt="愛知県議会議員・市議会議員向けセミナー（約150名規模）"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brown-900/75 via-brown-900/50 to-brown-900/30" />
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
           <motion.p
-            className="text-sm font-medium text-accent tracking-[0.2em] uppercase mb-4"
+            className="text-sm font-medium text-brown-200 tracking-[0.2em] uppercase mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -32,12 +40,12 @@ export default function Seminar() {
             Seminar & Lecture
           </motion.p>
           <TextReveal delay={0.2}>
-            <h1 className="text-3xl md:text-5xl font-bold text-brown-900 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
               セミナー・講演
             </h1>
           </TextReveal>
           <motion.p
-            className="mt-6 text-lg text-brown-600 max-w-2xl mx-auto"
+            className="mt-6 text-lg text-brown-100 max-w-2xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -47,62 +55,85 @@ export default function Seminar() {
         </div>
       </section>
 
-      {/* Photo Gallery */}
+      {/* 研修の様子 — メイン2枚 */}
       <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <SectionHeading title="登壇の様子" />
+            <SectionHeading title="研修の様子" />
           </FadeIn>
-          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto" staggerDelay={0.15}>
-            <motion.div variants={staggerItem} className="rounded-2xl overflow-hidden shadow-md">
-              <Image
-                src="/images/seminar-1.jpg"
-                alt="新政あいち 秋季セミナーでの登壇（約150名規模）"
-                width={800}
-                height={450}
-                className="w-full h-64 object-cover"
-              />
-              <p className="p-4 text-sm text-brown-600 bg-brown-50">愛知県議会議員・市議会議員向けセミナー（約150名規模）</p>
-            </motion.div>
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" staggerDelay={0.15}>
             <motion.div variants={staggerItem} className="rounded-2xl overflow-hidden shadow-md">
               <Image
                 src="/images/seminar-2.jpg"
                 alt="企業向けAI研修の様子"
                 width={800}
                 height={450}
-                className="w-full h-64 object-cover"
+                className="w-full h-72 object-cover"
               />
               <p className="p-4 text-sm text-brown-600 bg-brown-50">企業向けAI活用研修</p>
+            </motion.div>
+            <motion.div variants={staggerItem} className="rounded-2xl overflow-hidden shadow-md">
+              <Image
+                src="/images/seminar-4-v2.png"
+                alt="ハンズオン研修の様子"
+                width={800}
+                height={450}
+                className="w-full h-72 object-cover"
+              />
+              <p className="p-4 text-sm text-brown-600 bg-brown-50">ハンズオン形式のAI活用研修</p>
             </motion.div>
           </StaggerChildren>
         </div>
       </section>
 
-      {/* Overview */}
+      {/* Overview — seminar-5 を左に配置、テキスト右 */}
       <section className="py-24 md:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-brown-100">
-              <p className="text-brown-600 leading-relaxed text-lg">
-                JADOでは、企業・行政・学校・地域団体など幅広い機関に向けたAI活用セミナー・講演を実施しています。
-              </p>
-              <p className="mt-4 text-brown-600 leading-relaxed">
-                「AIって何から始めればいいの？」という入門レベルから、組織としてのAI戦略・DX推進まで、聴衆に合わせた内容でお届けします。ZIP
-                FMへのラジオ出演や、愛知県議会議員・市議会議員を対象とした約150名規模のセミナー登壇など、メディア・行政・民間を問わず幅広い実績があります。
-              </p>
-            </div>
-          </FadeIn>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <FadeIn direction="left">
+              <div className="w-full lg:w-[28rem] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg">
+                <Image
+                  src="/images/seminar-5.png"
+                  alt="「AI × 教育で日本を変える」ステージ登壇"
+                  width={800}
+                  height={500}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={0.2}>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-brown-800 mb-6">
+                  幅広い実績
+                </h2>
+                <p className="text-brown-600 leading-relaxed text-lg">
+                  JADOでは、企業・行政・学校・地域団体など幅広い機関に向けたAI活用セミナー・講演を実施しています。
+                </p>
+                <p className="mt-4 text-brown-600 leading-relaxed">
+                  「AIって何から始めればいいの？」という入門レベルから、組織としてのAI戦略・DX推進まで、聴衆に合わせた内容でお届けします。ZIP
+                  FMへのラジオ出演や、愛知県議会議員・市議会議員を対象とした約150名規模のセミナー登壇など、メディア・行政・民間を問わず幅広い実績があります。
+                </p>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Pricing — seminar-6 を背景に */}
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <Image
+          src="/images/seminar-6.png"
+          alt=""
+          fill
+          className="object-cover opacity-[0.08]"
+          aria-hidden="true"
+        />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <SectionHeading title="料金について" />
           </FadeIn>
           <FadeIn delay={0.15}>
-            <div className="bg-brown-50 rounded-2xl p-8 md:p-12 max-w-3xl mx-auto text-center">
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 max-w-3xl mx-auto text-center shadow-sm border border-brown-100">
               <p className="text-4xl font-bold text-brown-800">
                 10万円〜<span className="text-lg font-normal text-brown-500">（税別）</span>
               </p>
@@ -115,7 +146,7 @@ export default function Seminar() {
       </section>
 
       {/* Examples */}
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <SectionHeading title="セミナー対応例" />

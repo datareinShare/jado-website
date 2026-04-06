@@ -42,7 +42,7 @@ export default function About() {
           >
             <Image
               src="/images/jado-logo.jpg"
-              alt="JADO"
+              alt="JADO — 一般社団法人 日本AI人材育成機構"
               width={240}
               height={80}
               className="h-20 w-auto object-contain mx-auto"
