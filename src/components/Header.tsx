@@ -34,9 +34,9 @@ export function Header() {
 
   return (
     <motion.header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-40 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-brown-100"
+          ? "bg-white/90 backdrop-blur-xl shadow-sm border-b border-brown-100"
           : "bg-transparent"
       }`}
       initial={{ y: -100 }}
@@ -54,21 +54,25 @@ export function Header() {
               <Image
                 src="/images/jado-logo.jpg"
                 alt="JADO"
-                width={160}
-                height={52}
-                className="h-12 w-auto object-contain"
+                width={200}
+                height={64}
+                className="h-14 md:h-16 w-auto object-contain"
                 priority
               />
               <div className="hidden sm:flex flex-col border-l border-brown-200 pl-3">
-                <span className="text-[10px] text-brown-500 leading-tight tracking-wide">一般社団法人</span>
-                <span className="text-xs font-medium text-brown-700 leading-tight">日本AI人材育成機構</span>
+                <span className="text-[10px] text-brown-500 leading-tight tracking-wide">
+                  一般社団法人
+                </span>
+                <span className="text-xs font-medium text-brown-700 leading-tight">
+                  日本AI人材育成機構
+                </span>
               </div>
             </motion.div>
           </Link>
 
           {/* Desktop */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item, i) =>
+            {navItems.map((item) =>
               item.children ? (
                 <div
                   key={item.href}
@@ -76,12 +80,9 @@ export function Header() {
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
-                  <motion.button
-                    className="px-3 py-2 text-sm font-medium text-brown-700 hover:text-brown-900 transition-colors relative"
-                    whileHover={{ y: -1 }}
-                  >
+                  <button className="px-4 py-2 text-sm font-medium text-brown-700 hover:text-brown-900 transition-colors relative">
                     {item.label}
-                  </motion.button>
+                  </button>
                   <AnimatePresence>
                     {servicesOpen && (
                       <motion.div
@@ -89,7 +90,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 w-56 bg-white rounded-xl shadow-lg border border-brown-100 py-2 mt-1"
+                        className="absolute top-full left-0 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg border border-brown-100 py-2 mt-1"
                       >
                         {item.children.map((child, j) => (
                           <motion.div
@@ -100,7 +101,7 @@ export function Header() {
                           >
                             <Link
                               href={child.href}
-                              className="block px-4 py-2.5 text-sm text-brown-700 hover:bg-brown-50 hover:text-brown-900 transition-colors"
+                              className="block px-5 py-2.5 text-sm text-brown-700 hover:bg-brown-50 hover:text-brown-900 transition-colors"
                             >
                               {child.label}
                             </Link>
@@ -111,20 +112,19 @@ export function Header() {
                   </AnimatePresence>
                 </div>
               ) : (
-                <motion.div key={item.href} whileHover={{ y: -1 }}>
-                  <Link
-                    href={item.href}
-                    className="px-3 py-2 text-sm font-medium text-brown-700 hover:text-brown-900 transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-2 text-sm font-medium text-brown-700 hover:text-brown-900 transition-colors"
+                >
+                  {item.label}
+                </Link>
               )
             )}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
-                className="ml-4 px-5 py-2.5 bg-brown-700 text-white text-sm font-medium rounded-full hover:bg-brown-800 transition-colors shadow-md hover:shadow-lg"
+                className="ml-4 px-6 py-2.5 bg-brown-700 text-white text-sm font-medium rounded-full hover:bg-brown-800 transition-colors shadow-md hover:shadow-lg"
               >
                 お問い合わせ
               </Link>
@@ -167,14 +167,14 @@ export function Header() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="lg:hidden bg-white border-t border-brown-100 overflow-hidden"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-brown-100 overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div className="px-4 py-4 space-y-1">
-              {navItems.map((item, i) =>
+              {navItems.map((item) =>
                 item.children ? (
                   <div key={item.href}>
                     <p className="px-3 py-2 text-sm font-medium text-brown-500">
@@ -202,6 +202,15 @@ export function Header() {
                   </Link>
                 )
               )}
+              <div className="px-3 pt-4">
+                <Link
+                  href="/contact"
+                  className="block w-full text-center px-6 py-3 bg-brown-700 text-white text-sm font-medium rounded-full"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  お問い合わせ
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

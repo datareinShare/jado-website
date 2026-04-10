@@ -23,6 +23,7 @@
   --color-accent: #5a9a5a;
   --color-accent-dark: #3d7a3d;
   --font-sans: var(--font-noto-sans-jp);
+  --font-serif: var(--font-noto-serif-jp);
 }
 
 body {
@@ -32,4 +33,167 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Texture overlay for premium organic feel */
+.texture-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Organic blob morphing animation */
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(10deg) scale(1.05);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.organic-blob {
+  animation: morph 18s ease-in-out infinite;
+}
+
+/* Vertical writing mode for Japanese */
+.writing-vertical {
+  writing-mode: vertical-lr;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Ken Burns effect */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 20s ease-in-out infinite;
+}
+
+/* Animated gradient for hero blobs */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* Serif font utility */
+.font-serif {
+  font-family: var(--font-noto-serif-jp), serif;
+}
+
+/* Gradient border card */
+.gradient-border {
+  position: relative;
+  background: white;
+  border-radius: 1.5rem;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(90, 154, 90, 0.3),
+    rgba(176, 152, 128, 0.2),
+    rgba(90, 154, 90, 0.1)
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* Glow effect for accent elements */
+.accent-glow {
+  box-shadow: 0 0 20px rgba(90, 154, 90, 0.15),
+    0 0 60px rgba(90, 154, 90, 0.05);
+}
+
+.accent-glow-strong {
+  box-shadow: 0 0 30px rgba(90, 154, 90, 0.25),
+    0 0 80px rgba(90, 154, 90, 0.1);
+}
+
+/* Dot pattern decoration */
+.dot-pattern {
+  background-image: radial-gradient(
+    circle,
+    rgba(90, 154, 90, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+/* Decorative line */
+.deco-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(90, 154, 90, 0.3),
+    rgba(176, 152, 128, 0.2),
+    transparent
+  );
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #faf8f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #dcd3c6;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c2b6a3;
 }

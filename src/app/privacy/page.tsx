@@ -1,6 +1,6 @@
 "use client";
 
-import { SectionHeading } from "@/components/SectionHeading";
+import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { TextReveal } from "@/components/animations/TextReveal";
 
@@ -66,8 +66,19 @@ const sections = [
 export default function Privacy() {
   return (
     <>
-      <section className="bg-gradient-to-b from-brown-100 to-background py-24 md:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-32 md:py-40 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            className="flex items-center justify-center gap-4 mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span className="uppercase tracking-widest text-sm font-bold text-brown-400">
+              Privacy Policy
+            </span>
+          </motion.div>
           <TextReveal>
             <h1 className="text-3xl md:text-5xl font-bold text-brown-900 leading-tight">
               プライバシーポリシー
@@ -76,10 +87,10 @@ export default function Privacy() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 bg-white rounded-t-[3rem] -mt-8 relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <p className="text-brown-600 leading-relaxed mb-12">
+            <p className="text-brown-600 leading-relaxed mb-12 font-light">
               一般社団法人日本AI人材育成機構（以下「当法人」）は、ユーザーの個人情報の取り扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。
             </p>
           </FadeIn>
@@ -92,7 +103,7 @@ export default function Privacy() {
                     {section.title}
                   </h2>
                   {section.content && (
-                    <p className="text-brown-600 leading-relaxed">
+                    <p className="text-brown-600 leading-relaxed font-light">
                       {section.content}
                     </p>
                   )}
@@ -101,11 +112,9 @@ export default function Privacy() {
                       {section.items.map((item) => (
                         <li
                           key={item}
-                          className="text-brown-600 leading-relaxed flex items-start gap-2"
+                          className="text-brown-600 leading-relaxed font-light flex items-start gap-3"
                         >
-                          <span className="text-brown-300 mt-1.5 flex-shrink-0">
-                            &#8226;
-                          </span>
+                          <div className="w-1.5 h-1.5 rounded-full bg-brown-300 mt-2.5 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -118,9 +127,7 @@ export default function Privacy() {
 
           <FadeIn>
             <div className="mt-16 pt-8 border-t border-brown-100">
-              <p className="text-sm text-brown-400">
-                制定日: 2026年4月4日
-              </p>
+              <p className="text-sm text-brown-400">制定日: 2026年4月4日</p>
               <p className="text-sm text-brown-400">
                 一般社団法人 日本AI人材育成機構
               </p>

@@ -12,21 +12,27 @@ export default function Contact() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-brown-100 to-background py-24 md:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.p
-            className="text-sm font-medium text-accent tracking-[0.2em] uppercase mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+      <section className="relative py-32 md:py-40 overflow-hidden">
+        <div className="absolute top-[30%] right-[10%] w-[300px] h-[300px] bg-accent/5 rounded-full blur-3xl" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            className="flex items-center justify-center gap-4 mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            Contact
-          </motion.p>
+            <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+            <span className="uppercase tracking-widest text-sm font-bold text-brown-400">
+              Contact
+            </span>
+          </motion.div>
           <TextReveal delay={0.2}>
-            <h1 className="text-3xl md:text-5xl font-bold text-brown-900">お問い合わせ</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-brown-900">
+              お問い合わせ
+            </h1>
           </TextReveal>
           <motion.p
-            className="mt-6 text-lg text-brown-600"
+            className="mt-6 text-lg text-brown-600 font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -39,14 +45,31 @@ export default function Contact() {
       </section>
 
       {/* Form */}
-      <section className="py-24 md:py-32">
+      <section className="py-24 md:py-32 bg-white rounded-t-[3rem] -mt-8 relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-brown-100">
+            <div className="bg-brown-50/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-brown-100">
               {state?.success ? (
                 <div className="text-center py-12">
-                  <p className="text-2xl font-bold text-brown-800 mb-4">送信が完了しました</p>
-                  <p className="text-brown-600">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
+                    <svg
+                      className="w-8 h-8 text-accent"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-2xl font-bold text-brown-800 mb-4">
+                    送信が完了しました
+                  </p>
+                  <p className="text-brown-600 font-light">
                     お問い合わせありがとうございます。
                     <br />
                     担当者より2営業日以内にご返信いたします。
@@ -55,22 +78,27 @@ export default function Contact() {
               ) : (
                 <form action={formAction} className="space-y-6">
                   {state?.success === false && (
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700 text-sm">
+                    <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-red-700 text-sm">
                       {state.message}
                     </div>
                   )}
 
                   <div>
-                    <label htmlFor="type" className="block text-sm font-medium text-brown-700 mb-2">
+                    <label
+                      htmlFor="type"
+                      className="block text-sm font-medium text-brown-700 mb-2"
+                    >
                       お問い合わせ種別
                     </label>
                     <select
                       id="type"
                       name="type"
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
+                      className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
                     >
                       <option value="">選択してください</option>
-                      <option value="altif">放課後等デイサービス ALTIF について</option>
+                      <option value="altif">
+                        放課後等デイサービス ALTIF について
+                      </option>
                       <option value="mirai">子ども向けAIスクールについて</option>
                       <option value="training">企業向けAI研修について</option>
                       <option value="seminar">セミナー・講演について</option>
@@ -80,7 +108,10 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-brown-700 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-brown-700 mb-2"
+                      >
                         お名前 <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -89,25 +120,30 @@ export default function Contact() {
                         name="name"
                         required
                         aria-required="true"
-                        className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent invalid:border-red-300 invalid:focus:border-red-400 invalid:focus:ring-red-200 outline-none transition-all duration-200 peer"
+                        className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
                       />
-                      <p className="hidden peer-invalid:peer-not-placeholder-shown:block text-sm text-red-500 mt-1">お名前を入力してください</p>
                     </div>
                     <div>
-                      <label htmlFor="kana" className="block text-sm font-medium text-brown-700 mb-2">
+                      <label
+                        htmlFor="kana"
+                        className="block text-sm font-medium text-brown-700 mb-2"
+                      >
                         フリガナ
                       </label>
                       <input
                         type="text"
                         id="kana"
                         name="kana"
-                        className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
+                        className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-brown-700 mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-brown-700 mb-2"
+                    >
                       メールアドレス <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -116,37 +152,45 @@ export default function Contact() {
                       name="email"
                       required
                       aria-required="true"
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent invalid:border-red-300 invalid:focus:border-red-400 invalid:focus:ring-red-200 outline-none transition-all duration-200 peer"
+                      className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
                     />
-                    <p className="hidden peer-invalid:peer-not-placeholder-shown:block text-sm text-red-500 mt-1">有効なメールアドレスを入力してください</p>
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-brown-700 mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-brown-700 mb-2"
+                    >
                       電話番号
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
+                      className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="org" className="block text-sm font-medium text-brown-700 mb-2">
+                    <label
+                      htmlFor="org"
+                      className="block text-sm font-medium text-brown-700 mb-2"
+                    >
                       会社名・団体名
                     </label>
                     <input
                       type="text"
                       id="org"
                       name="org"
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
+                      className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-brown-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-brown-700 mb-2"
+                    >
                       お問い合わせ内容 <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -155,22 +199,36 @@ export default function Contact() {
                       rows={6}
                       required
                       aria-required="true"
-                      className="w-full rounded-lg border border-brown-200 px-4 py-3 text-brown-700 focus:border-accent focus:ring-1 focus:ring-accent invalid:border-red-300 invalid:focus:border-red-400 invalid:focus:ring-red-200 outline-none transition-all duration-200 resize-y peer"
+                      className="w-full rounded-2xl border border-brown-200 px-4 py-3 text-brown-700 bg-white focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all duration-200 resize-y"
                     />
-                    <p className="hidden peer-invalid:peer-not-placeholder-shown:block text-sm text-red-500 mt-1">お問い合わせ内容を入力してください</p>
                   </div>
 
                   <motion.button
                     type="submit"
                     disabled={isPending}
-                    className="w-full bg-brown-700 text-white py-4 rounded-full font-medium hover:bg-brown-800 transition-colors shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                    whileHover={isPending ? {} : { scale: 1.02 }}
+                    className="w-full bg-accent text-white py-4 rounded-full font-medium hover:bg-accent-dark transition-colors shadow-[0_10px_30px_rgba(90,154,90,0.3)] hover:shadow-[0_15px_40px_rgba(90,154,90,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    whileHover={isPending ? {} : { y: -2 }}
                     whileTap={isPending ? {} : { scale: 0.98 }}
                   >
                     {isPending && (
-                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      <svg
+                        className="animate-spin h-5 w-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                        />
                       </svg>
                     )}
                     {isPending ? "送信中..." : "送信する"}
@@ -181,11 +239,11 @@ export default function Contact() {
           </FadeIn>
 
           <FadeIn delay={0.3}>
-            <div className="mt-8 text-center text-brown-500 text-sm">
+            <div className="mt-8 text-center text-brown-400 text-sm">
               <p>メールでのお問い合わせ</p>
               <button
                 type="button"
-                className="text-accent hover:underline"
+                className="text-accent hover:underline mt-1"
                 onClick={() => {
                   const u = "Kento0124ss";
                   const d = "gmail.com";

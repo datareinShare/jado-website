@@ -2,18 +2,23 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-brown-800 text-brown-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <p className="text-2xl font-bold text-white mb-2">JADO</p>
-            <p className="text-xs text-brown-300 tracking-wider mb-1">
-              Japan AI Development Organization
+    <footer className="bg-gradient-to-b from-brown-900 to-brown-900/95 text-brown-300 relative">
+      <div className="absolute top-0 left-0 w-full h-px deco-line" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <p className="text-2xl font-bold text-white tracking-widest uppercase mb-4">
+              JADO
             </p>
-            <p className="text-sm leading-relaxed">
+            <p className="text-sm leading-loose max-w-sm mb-4">
               一般社団法人 日本AI人材育成機構
+              <br />
+              テクノロジーと人の共存をデザインし、
+              <br />
+              誰一人取り残されない社会基盤を作る。
             </p>
-            <p className="text-sm mt-2">
+            <p className="text-sm">
               〒453-0872
               <br />
               愛知県名古屋市中村区平池町4丁目60-5
@@ -22,9 +27,12 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
-            <h4 className="text-white text-sm font-bold mb-4">事業紹介</h4>
-            <ul className="space-y-2 text-sm">
+          {/* Services */}
+          <div className="md:col-span-3">
+            <h4 className="text-white text-sm font-bold tracking-widest uppercase mb-6">
+              Services
+            </h4>
+            <ul className="space-y-4 text-sm">
               <li>
                 <Link
                   href="/services/altif"
@@ -60,9 +68,12 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="text-white text-sm font-bold mb-4">リンク</h4>
-            <ul className="space-y-2 text-sm">
+          {/* Organization */}
+          <div className="md:col-span-4">
+            <h4 className="text-white text-sm font-bold tracking-widest uppercase mb-6">
+              Organization
+            </h4>
+            <ul className="space-y-4 text-sm">
               <li>
                 <Link
                   href="/about"
@@ -99,11 +110,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-brown-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm">&copy; 2026 JADO All Rights Reserved.</p>
+        <div className="pt-8 border-t border-brown-800/50 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs tracking-wider">
+          <p>&copy; 2026 JADO All Rights Reserved.</p>
           <Link
             href="/privacy"
-            className="text-sm hover:text-white transition-colors"
+            className="hover:text-white transition-colors"
           >
             プライバシーポリシー
           </Link>
