@@ -159,8 +159,13 @@ export default function Founder() {
       {/* Message */}
       <section className="py-32 md:py-40 bg-gradient-to-b from-brown-900 to-brown-800 text-brown-100 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px deco-line" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.22] pointer-events-none mix-blend-screen"
+          style={{ backgroundImage: "url('/images/bg/bg-founder-message.jpg')" }}
+        />
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-brown-900/30 via-brown-900/20 to-brown-800/40 pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -178,7 +183,7 @@ export default function Founder() {
             </div>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <div className="space-y-6 text-brown-300 leading-[2] font-light bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
+            <div className="space-y-6 text-brown-100 leading-[2] font-light bg-black/40 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/15">
               <p>
                 私には10歳下の弟がいます。
                 <br />

@@ -120,7 +120,12 @@ export default function About() {
       {/* Background */}
       <section className="py-32 md:py-40 relative overflow-hidden bg-gradient-to-b from-white to-brown-50/50">
         <div className="absolute top-0 left-0 w-full h-px deco-line" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.30] pointer-events-none"
+          style={{ backgroundImage: "url('/images/bg/bg-about-background.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-brown-50/40 pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <SectionHeading title="設立の背景" label="Background" />
           </FadeIn>
@@ -184,15 +189,15 @@ export default function About() {
               <motion.div
                 key={item.number}
                 variants={staggerItem}
-                className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                className="bg-brown-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/15 hover:bg-brown-900/50 transition-all duration-300"
               >
-                <span className="text-6xl font-bold text-white/10">
+                <span className="text-6xl font-bold text-white/15">
                   {item.number}
                 </span>
                 <h3 className="mt-4 text-lg font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-brown-300 leading-relaxed font-light whitespace-pre-line text-sm">
+                <p className="mt-3 text-brown-100 leading-relaxed font-light whitespace-pre-line text-sm">
                   {item.description}
                 </p>
               </motion.div>

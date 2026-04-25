@@ -90,8 +90,13 @@ export default function Altif() {
       </section>
 
       {/* What is ALTIF */}
-      <section className="py-24 md:py-32 bg-white rounded-t-[3rem] -mt-8 relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-white rounded-t-[3rem] -mt-8 relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.02)] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.30] pointer-events-none rounded-t-[3rem]"
+          style={{ backgroundImage: "url('/images/bg/bg-altif-intro.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-white/50 pointer-events-none rounded-t-[3rem]" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="bg-green-50/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-green-100">
               <h2 className="font-serif text-2xl font-bold text-brown-800 mb-6">
@@ -117,8 +122,13 @@ export default function Altif() {
       </section>
 
       {/* Daily Life */}
-      <section className="py-32 md:py-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-32 md:py-40 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.25] pointer-events-none"
+          style={{ backgroundImage: "url('/images/bg/bg-altif-daily.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/15 to-white/40 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <SectionHeading
               title="ALTIFでの過ごし方"
@@ -192,8 +202,13 @@ export default function Altif() {
       {/* Strengths */}
       <section className="py-32 md:py-40 bg-gradient-to-b from-brown-900 to-brown-800 text-brown-100 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px deco-line" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.40] pointer-events-none mix-blend-screen"
+          style={{ backgroundImage: "url('/images/bg/bg-altif-strengths.jpg')" }}
+        />
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-brown-900/15 via-transparent to-brown-800/30 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -231,8 +246,13 @@ export default function Altif() {
       </section>
 
       {/* Pillars */}
-      <section className="py-32 md:py-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-32 md:py-40 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.25] pointer-events-none"
+          style={{ backgroundImage: "url('/images/bg/bg-altif-pillars.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/15 to-white/40 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <SectionHeading title="学びの3本柱" label="Pillars" />
           </FadeIn>

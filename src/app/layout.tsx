@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
@@ -62,6 +63,7 @@ export default function RootLayout({
     <html lang="ja" className={`${notoSansJP.variable} ${notoSerifJP.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <div className="texture-overlay" />
+        <SmoothScroll />
         <ScrollToTop />
         <Header />
         <main className="flex-1">{children}</main>

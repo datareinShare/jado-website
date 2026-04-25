@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const DARK_HERO_PATHS = ["/services/seminar"];
 
 const navItems = [
   { href: "/about", label: "JADOについて" },
@@ -25,6 +28,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const onDarkHero = !scrolled && DARK_HERO_PATHS.includes(pathname);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -59,11 +64,11 @@ export function Header() {
                 className="h-14 md:h-16 w-auto object-contain"
                 priority
               />
-              <div className="hidden sm:flex flex-col border-l border-brown-200 pl-3">
-                <span className="text-[10px] text-brown-500 leading-tight tracking-wide">
+              <div className={`hidden sm:flex flex-col border-l pl-3 transition-colors duration-300 ${onDarkHero ? "border-white/30" : "border-brown-200"}`}>
+                <span className={`text-[10px] leading-tight tracking-wide transition-colors duration-300 ${onDarkHero ? "text-white/70" : "text-brown-500"}`}>
                   一般社団法人
                 </span>
-                <span className="text-xs font-medium text-brown-700 leading-tight">
+                <span className={`text-xs font-medium leading-tight transition-colors duration-300 ${onDarkHero ? "text-white" : "text-brown-700"}`}>
                   日本AI人材育成機構
                 </span>
               </div>
@@ -80,7 +85,7 @@ export function Header() {
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                 >
-                  <button className="px-4 py-2 text-sm font-medium text-brown-700 hover:text-brown-900 transition-colors relative">
+                  <button className={`px-4 py-2 text-sm font-medium transition-colors relative ${onDarkHero ? "text-white hover:text-white/80" : "text-brown-700 hover:text-brown-900"}`}>
                     {item.label}
                   </button>
                   <AnimatePresence>
@@ -115,7 +120,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="px-4 py-2 text-sm font-medium text-brown-700 hover:text-brown-900 transition-colors"
+                  className={`px-4 py-2 text-sm font-medium transition-colors ${onDarkHero ? "text-white hover:text-white/80" : "text-brown-700 hover:text-brown-900"}`}
                 >
                   {item.label}
                 </Link>
@@ -133,7 +138,7 @@ export function Header() {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 text-brown-700"
+            className={`lg:hidden p-2 transition-colors duration-300 ${onDarkHero ? "text-white" : "text-brown-700"}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="メニュー"
           >

@@ -30,6 +30,7 @@ export default function Seminar() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brown-900/80 via-brown-900/60 to-brown-900/30" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-brown-900/70 to-transparent pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40">
           <motion.div
             className="flex items-center gap-4 mb-6"

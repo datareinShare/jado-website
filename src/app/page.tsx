@@ -177,8 +177,13 @@ export default function Home() {
       <WaveDivider color="#ffffff" className="-mb-1 relative z-10" />
 
       {/* Mission */}
-      <section className="py-32 md:py-48 relative bg-white z-10 w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-32 md:py-48 relative bg-white z-10 w-full overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.25] pointer-events-none"
+          style={{ backgroundImage: "url('/images/bg/bg-mission.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/50 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
             {/* Vertical text (desktop) */}
             <div className="lg:col-span-3 hidden lg:flex justify-end pr-8 border-r border-brown-200">

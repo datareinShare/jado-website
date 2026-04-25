@@ -113,8 +113,13 @@ export default function Mirai() {
       </section>
 
       {/* Overview */}
-      <section className="py-24 md:py-32 bg-white rounded-t-[3rem] -mt-8 relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.02)]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 md:py-32 bg-white rounded-t-[3rem] -mt-8 relative z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.02)] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.30] pointer-events-none rounded-t-[3rem]"
+          style={{ backgroundImage: "url('/images/bg/bg-mirai-overview.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-white/50 pointer-events-none rounded-t-[3rem]" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="bg-brown-50/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-brown-100">
               <p className="text-brown-600 leading-[2] text-lg font-light">
@@ -137,8 +142,13 @@ export default function Mirai() {
       </section>
 
       {/* 4 Skills */}
-      <section className="py-32 md:py-40">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-32 md:py-40 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.25] pointer-events-none"
+          style={{ backgroundImage: "url('/images/bg/bg-mirai-skills.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/15 to-white/40 pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <SectionHeading title="育成する4つの力" label="Skills" />
           </FadeIn>
@@ -160,8 +170,13 @@ export default function Mirai() {
       {/* Course Examples */}
       <section className="py-32 md:py-40 bg-gradient-to-b from-brown-900 to-brown-800 text-brown-100 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px deco-line" />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.40] pointer-events-none mix-blend-screen"
+          style={{ backgroundImage: "url('/images/bg/bg-mirai-courses.jpg')" }}
+        />
         <div className="absolute inset-0 dot-pattern opacity-20" />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-b from-brown-900/15 via-transparent to-brown-800/30 pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <div className="text-center mb-16">
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -177,10 +192,10 @@ export default function Mirai() {
               <motion.div
                 key={course.interest}
                 variants={staggerItem}
-                className="bg-white/5 backdrop-blur-sm rounded-3xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                className="bg-brown-900/40 backdrop-blur-md rounded-3xl p-6 border border-white/15 hover:bg-brown-900/50 transition-all duration-300"
               >
                 <h3 className="text-base font-bold text-white">{course.interest}なら</h3>
-                <p className="mt-2 text-brown-300 leading-relaxed text-sm font-light whitespace-pre-line">{course.content}</p>
+                <p className="mt-2 text-brown-100 leading-relaxed text-sm font-light whitespace-pre-line">{course.content}</p>
               </motion.div>
             ))}
           </StaggerChildren>
@@ -188,8 +203,13 @@ export default function Mirai() {
       </section>
 
       {/* 5 Reasons */}
-      <section className="py-32 md:py-40">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-32 md:py-40 relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.25] pointer-events-none"
+          style={{ backgroundImage: "url('/images/bg/bg-mirai-reasons.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/15 to-white/40 pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn>
             <SectionHeading title="選ばれる5つの理由" label="Why Choose Us" />
           </FadeIn>
