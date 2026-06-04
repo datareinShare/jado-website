@@ -61,41 +61,27 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative w-full min-h-[100vh] flex items-center overflow-hidden">
-        {/* Background layers */}
+        {/* Full-bleed background image */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-brown-100/50 via-brown-50/80 to-background" />
+          <motion.div
+            className="absolute inset-0"
+            initial={{ scale: 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 2.4, ease: "easeOut" }}
+          >
+            <Image
+              src="/images/bg/bg-hero.jpg"
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-right"
+            />
+          </motion.div>
+          {/* Dark scrim: stronger on the left where the headline sits, plus a soft bottom fade into the page */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brown-900/80 via-brown-900/45 to-brown-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brown-900/30 from-0% via-transparent via-55% to-background to-100%" />
         </div>
-
-        {/* Organic blob shapes */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] organic-blob animated-gradient opacity-30"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(90, 154, 90, 0.2), rgba(176, 152, 128, 0.15), rgba(90, 154, 90, 0.1))",
-            backgroundSize: "200% 200%",
-            filter: "blur(60px)",
-          }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute top-[20%] right-[5%] w-[400px] h-[400px] organic-blob opacity-20"
-          style={{
-            background:
-              "linear-gradient(225deg, rgba(90, 154, 90, 0.2), rgba(176, 152, 128, 0.1))",
-            filter: "blur(40px)",
-            animationDelay: "-6s",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-[10%] left-[5%] w-[300px] h-[300px] organic-blob opacity-15"
-          style={{
-            background:
-              "linear-gradient(45deg, rgba(74, 60, 44, 0.1), rgba(90, 154, 90, 0.1))",
-            filter: "blur(50px)",
-            animationDelay: "-12s",
-          }}
-        />
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 pt-32 md:pt-44">
@@ -110,18 +96,18 @@ export default function Home() {
             </motion.p>
 
             <TextReveal delay={0.4}>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-brown-900 leading-[1.2] tracking-tight">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.2] tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
                 もし、あなたに合った未来が
               </h1>
             </TextReveal>
             <TextReveal delay={0.6}>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight bg-gradient-to-r from-brown-900 via-brown-700 to-accent bg-clip-text text-transparent">
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight bg-gradient-to-r from-white via-brown-100 to-accent bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
                 ここにあったなら。
               </h1>
             </TextReveal>
 
             <motion.div
-              className="mt-10 w-24 h-px bg-brown-800/30"
+              className="mt-10 w-24 h-px bg-white/40"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 1, ease: "easeOut" }}
@@ -129,7 +115,7 @@ export default function Home() {
             />
 
             <motion.p
-              className="mt-8 text-lg md:text-xl text-brown-600 max-w-2xl leading-relaxed font-light"
+              className="mt-8 text-lg md:text-xl text-white/85 max-w-2xl leading-relaxed font-light drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
@@ -149,10 +135,10 @@ export default function Home() {
             >
               <Link
                 href="#services"
-                className="group flex items-center justify-center w-14 h-14 rounded-full border border-brown-800/20 hover:border-accent hover:bg-accent transition-all duration-300"
+                className="group flex items-center justify-center w-14 h-14 rounded-full border border-white/40 hover:border-accent hover:bg-accent transition-all duration-300"
               >
                 <svg
-                  className="w-5 h-5 text-brown-800 group-hover:text-white transition-colors duration-300"
+                  className="w-5 h-5 text-white group-hover:text-white transition-colors duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -165,7 +151,7 @@ export default function Home() {
                   />
                 </svg>
               </Link>
-              <span className="text-sm font-medium tracking-widest uppercase text-brown-400">
+              <span className="text-sm font-medium tracking-widest uppercase text-white/70">
                 Scroll to explore
               </span>
             </motion.div>

@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // Allow accessing the dev server via 127.0.0.1 / LAN IP (not just localhost),
+  // otherwise Next blocks HMR + client JS and the page renders without interactivity.
+  allowedDevOrigins: ["127.0.0.1", "100.69.230.57"],
   images: {
     formats: ["image/avif", "image/webp"],
   },

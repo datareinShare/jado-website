@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DARK_HERO_PATHS = ["/services/seminar"];
+const DARK_HERO_PATHS = ["/", "/services/seminar"];
 
 const navItems = [
   { href: "/about", label: "JADOについて" },

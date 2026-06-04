@@ -31,6 +31,32 @@ const STYLE = [
   "High-end magazine quality, refined and confident.",
 ].join(" ");
 
+// HERO uses a distinct style: full-bleed background under white text overlay,
+// not a low-opacity section background. Designed to be shown at full strength
+// with a dark gradient scrim on the left where the headline sits.
+const HERO_STYLE = [
+  "Cinematic full-bleed hero background photograph, no people, no text, no logos, no UI, no watermark.",
+  "Wide horizontal composition. Keep the LEFT THIRD darker and calmer (it will hold large white headline text), let the main luminous subject sit on the RIGHT side.",
+  "Dramatic directional lighting, deep rich shadows, strong sense of depth and atmosphere — designed to be shown at full strength with a dark gradient scrim, white text must read clearly on top.",
+  "Color palette: warm earth tones (deep brown #4a3c2c, warm beige #b09880, cream #f5efe7) with a luminous sage green accent (#5a9a5a).",
+  "High-end magazine cover quality, refined, confident, aspirational. Photographic, sharp focus, not painterly, not AI-looking.",
+].join(" ");
+
+const HERO_SECTIONS = [
+  {
+    name: "bg-hero",
+    prompt: `${HERO_STYLE} A breathtaking sunrise breaking over layered misty mountain ridges, golden light beams cutting diagonally from the upper right through atmospheric haze, sage-green forested slopes fading into beige distance. The left side is in calm shadow, the right side glows with warm dawn light. Vast, hopeful, the feeling of a future opening up. Photographic, epic scale.`,
+  },
+  {
+    name: "bg-hero-alt-a",
+    prompt: `${HERO_STYLE} A single young tree on a gentle hill at golden hour, strong backlight from the right creating a luminous rim and long shadow toward the left, warm bokeh light particles floating in the air, deep brown foreground grass. Left side darker and quiet. Symbol of growth and individual potential. Cinematic, photographic.`,
+  },
+  {
+    name: "bg-hero-alt-b",
+    prompt: `${HERO_STYLE} Abstract flowing ribbons of warm golden and sage-green light arcing across a deep dark brown background from lower-left to upper-right, like aurora or fiber-optic light trails, luminous and crisp against near-black on the left. Elegant, technological yet warm, suggesting connection and possibility. Long-exposure light photography style.`,
+  },
+];
+
 const SECTIONS = [
   {
     name: "bg-mission",
@@ -155,10 +181,11 @@ async function main() {
   console.log(`Models tried: ${MODELS.join(" -> ")}`);
   console.log(`Size: ${SIZE}, Quality: ${QUALITY}\n`);
 
+  const allSections = [...HERO_SECTIONS, ...SECTIONS];
   const filter = process.argv[2];
   const targets = filter
-    ? SECTIONS.filter((s) => s.name.includes(filter))
-    : SECTIONS;
+    ? allSections.filter((s) => s.name.includes(filter))
+    : SECTIONS; // default run excludes hero variants; pass "hero" to generate them
 
   let ok = 0;
   let ng = 0;
